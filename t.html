@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<body>
+<button id="openWindow">Open New Window</button>
+
+<script>
+    let newWindow;
+
+    document.getElementById('openWindow').addEventListener('click', function() {
+        newWindow = window.open('http://youtube.com', '_blank', 'width=800,height=600');
+    });
+
+    window.addEventListener('message', function(event) {
+        if (event.origin === 'http://youtube.com') {
+            console.log('Received message from new window:', event.data);
+        }
+    });
+</script>
+</body>
+</html>
