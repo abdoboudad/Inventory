@@ -17,13 +17,10 @@ class CategoryController extends Controller
     }
     public function search(Request $request)
     {
-        // Get the search query from the request
         $query = $request->input('query');
 
-        // Search your database (replace YourModel with your actual model)
         $results = Category::where('title', 'LIKE', "%$query%")->get();
 
-        // Return the results as JSON
         return response()->json($results);
     }
     public function store(Request $request){
