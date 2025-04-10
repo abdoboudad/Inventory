@@ -19,13 +19,10 @@ class SupplierController extends Controller
 
     public function search(Request $request)
     {
-        // Get the search query from the request
         $query = $request->input('query');
 
-        // Search your database (replace YourModel with your actual model)
         $results = Supplier::where('name', 'LIKE', "%$query%")->get();
 
-        // Return the results as JSON
         return response()->json($results);
     }
 
